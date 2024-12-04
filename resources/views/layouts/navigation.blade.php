@@ -1,4 +1,5 @@
-<navr x-data="{ open: false }" class="bg-white border-b border-gray-100">
+
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -15,10 +16,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
- <x-nav-link :href="route('/prodi')" :active="request()->routeIs('/prodi')">
+                    <x-nav-link :href="route('/prodi')" :active="request()->routeIs('/prodi')">
                         {{ __('Program Studi') }}
                     </x-nav-link>
-
+                    <x-nav-link :href="route('/mahasiswa')" :active="request()->routeIs('/mahasiswa')">
+                        {{ __('Mahasiswa') }}
+                    </x-nav-link>
                 </div>
             </div>
 
