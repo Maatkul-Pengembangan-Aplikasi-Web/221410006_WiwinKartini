@@ -16,7 +16,7 @@
                             </div>
                         @endif
                         <div class="ml-auto d-flex">
-                            <a href="{{ route('mahasiswa.create') }}" class="btn btn-primary mr-2">Tambah Mahasiswa</a>
+                            <a href="{{ route('mahasiswa/create') }}" class="btn btn-primary mr-2">Tambah Mahasiswa</a>
                             <form action="{{ route('/mahasiswa') }}" method="GET" class="d-flex">
                                 <input type="text" name="search" class="form-control" placeholder="Pencarian"
                                     value="{{ old('search', $search) }}">
@@ -55,7 +55,7 @@
                                     </td>
                                     <td>
                                         <a
-                                            href="{{ route('mahasiswa.edit', $mahasiswa->id) }}"class="btn btn-secondary">Edit</a>
+                                            href="{{ route('mahasiswa/edit', $mahasiswa->id) }}"class="btn btn-secondary">Edit</a>
                                         <a href="javascript:void(0)" onclick="deleteFunction({{ $mahasiswa->id }})"
                                             type="button" class="btn btn-danger">Hapus</a>
                                     </td>
@@ -63,6 +63,12 @@
                             @endforeach
                         </tbody>
                     </table>
+                 <!-- Back Button after Search moved to bottom left -->
+                    @if(request()->has('search'))
+                        <div class="mt-4">
+                            <a href="{{ route('/prodi') }}" class="btn btn-secondary">Kembali</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

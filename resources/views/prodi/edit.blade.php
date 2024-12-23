@@ -4,12 +4,12 @@
             {{ __('Edit Program Studi') }}
         </h2>
     </x-slot>
-    
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form action="{{ route('prodi.edit', $prodi->id) }}" method="POST">
+                    <form action="{{ route('prodi/edit', $prodi->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
@@ -26,4 +26,4 @@
             </div>
         </div>
     </div>
-    </x-app-layout>
+</x-app-layout>

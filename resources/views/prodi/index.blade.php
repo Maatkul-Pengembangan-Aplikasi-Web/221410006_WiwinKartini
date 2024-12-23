@@ -16,7 +16,7 @@
                             </div>
                         @endif
                         <div class="ml-auto d-flex">
-                            <a href="{{ route('prodi.create') }}" class="btn btn-primary mr-2">Tambah Program Studi</a>
+                            <a href="{{ route('prodi/create') }}" class="btn btn-primary mr-2">Tambah Program Studi</a>
                             
                             <!-- Search Form -->
                             <form action="{{ route('/prodi') }}" method="GET" class="d-flex">
@@ -43,8 +43,8 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $prodi->nama }}</td>
                                     <td>
-                                        <a href="{{ route('prodi.edit', $prodi->id) }}" class="btn btn-secondary">Edit</a>
-                                        <form action="{{ route('prodi.delete', $prodi->id) }}" method="POST" class="d-inline">
+                                        <a href="{{ route('prodi/edit', $prodi->id) }}" class="btn btn-secondary">Edit</a>
+                                        <form action="{{ route('prodi/delete', $prodi->id) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger">Hapus</button>
@@ -58,7 +58,7 @@
                     <!-- Back Button after Search moved to bottom left -->
                     @if(request()->has('search'))
                         <div class="mt-4">
-                            <a href="{{ route('/prodi') }}" class="btn btn-secondary">Back</a>
+                            <a href="{{ route('/prodi') }}" class="btn btn-secondary">Kembali</a>
                         </div>
                     @endif
 

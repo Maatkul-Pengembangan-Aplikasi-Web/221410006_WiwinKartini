@@ -74,13 +74,12 @@ class MahasiswaController extends Controller
 
         // Proses upload gambar baru
         if ($request->hasFile('foto')) {
-            $namaFoto = $request->npm . '.' . $request->foto->extension();
-            $request->foto->move(public_path('fotomahasiswa'), $namaFoto);
-
             // Hapus gambar lama jika ada
             if ($mahasiswa->foto && file_exists(public_path('fotomahasiswa/' . $mahasiswa->foto))) {
-            unlink(public_path('fotomahasiswa/' . $mahasiswa->foto));
+                unlink(public_path('fotomahasiswa/' . $mahasiswa->foto));
             }
+            $namaFoto = $request->npm . '.' . $request->foto->extension();
+            $request->foto->move(public_path('fotomahasiswa'), $namaFoto);
 
             // Set gambar baru
             $mahasiswa->foto = $namaFoto;
@@ -104,14 +103,14 @@ class MahasiswaController extends Controller
         // Hapus gambar jika ada
         if ($mahasiswa->foto) {
             if (file_exists(public_path('fotomahasiswa/' . $mahasiswa->foto))) {
-            unlink(public_path('fotomahasiswa/' . $mahasiswa->foto));
+                unlink(public_path('fotomahasiswa/' . $mahasiswa->foto));
             }
         }
 
-    // Hapus produk
-    $mahasiswa->delete();
+        // Hapus produk
+        $mahasiswa->delete();
 
-    session()->flash('success', 'Data Mahasiswa Berhasil di Hapus');
-    return redirect(route('/mahasiswa'));
+        session()->flash('success', 'Data Mahasiswa Berhasil di Hapus');
+        return redirect(route('/mahasiswa'));
     }
 }
